@@ -1,0 +1,33 @@
+[91m
+                 ____        _     _ _     _   _____
+                / ___| _   _| |__ | (_)___| |_|___ / _ __
+                \___ \| | | | '_ \| | / __| __| |_ \| '__|
+                 ___) | |_| | |_) | | \__ \ |_ ___) | |
+                |____/ \__,_|_.__/|_|_|___/\__|____/|_|[0m[93m
+
+                # Coded By Ahmed Aboul-Ela - @aboul3la
+    
+[94m[-] Enumerating subdomains now for bbce.com.br[0m
+[92m[-] Searching now in Baidu..[0m
+[92m[-] Searching now in Yahoo..[0m
+[92m[-] Searching now in Google..[0m
+[92m[-] Searching now in Bing..[0m
+[92m[-] Searching now in Ask..[0m
+[92m[-] Searching now in Netcraft..[0m
+[92m[-] Searching now in DNSdumpster..[0m
+[92m[-] Searching now in Virustotal..[0m
+[92m[-] Searching now in ThreatCrowd..[0m
+[92m[-] Searching now in SSL Certificates..[0m
+[92m[-] Searching now in PassiveDNS..[0m
+[91m[!] Error: Virustotal probably now is blocking our requests[0m
+[93m[-] Total Unique Subdomains Found: 10[0m
+[92mwww.bbce.com.br[0m
+[92mbalcao.bbce.com.br[0m
+[92mbi.bbce.com.br[0m
+[92mwww.bi.bbce.com.br[0m
+[92mnovobalcao.bbce.com.br[0m
+[92mservicos.bbce.com.br[0m
+[92mwww.servicos.bbce.com.br[0m
+[92msonarqube.bbce.com.br[0m
+[92mwso2.bbce.com.br[0m
+[92mwww.wso2.bbce.com.br[0m

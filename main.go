@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 	"os"
-	"strings"
+	//"strings"
 	"sync"
 	
 )
@@ -12,7 +12,6 @@ import (
 type shellArgs struct {
 	domain string
 	wgPointer *sync.WaitGroup
-	outChannel *chan string
 }
 
 func main() {
@@ -25,7 +24,7 @@ func main() {
 
 	wg.Add(2)
 
-	
+	outChannel := make(chan string)
 
 	//Criando o canal para adicionar os subdomínios encontrados 
 
@@ -40,22 +39,29 @@ func main() {
 
 	//Chamando as funções de enumeração
 
-	out1 := subfinder(&shellArgs)
-	out2 := assetfinder(&shellArgs)
+	go func() {
+		outChannel <- subfinder(shellArgs)
+
+	} ()
+	go func() {
+
+		outChannel <- assetfinder(shellArgs)
+
+	}()
 
 	//------------------------------------------------
 
-	wg.Wait()
-	output := out1 + out2
-
+	//wg.Wait()
+	output := <-outChannel
+	fmt.Println(output)
 	// Sorting a lista para só resultados únicos
-	s := strings.Split(output,"\n")
-	s = sort(s)
+	//s := strings.Split(output,"\n")
+	//s = sort(s)
 
 	//------------------------------------------------
 
-	fmt.Println(strings.Join(s, "\n"))
-	fmt.Printf("%T\n",s)
+	//fmt.Println(strings.Join(s, "\n"))
+	//fmt.Printf("%T\n",s)
 	//fmt.Println(output)
 	
 }

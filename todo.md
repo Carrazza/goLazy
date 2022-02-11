@@ -1,2 +1,3 @@
-- write to file 
-- 
+- write to file on arg
+- quiet flag 
+- sublist3r -d bpp.com.br | sed '1,23d'
