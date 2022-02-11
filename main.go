@@ -2,8 +2,9 @@ package main
 
 import (
 	"fmt"
-	"os/exec"
 	"os"
+	"strings"
+	
 )
 
 func main() {
@@ -17,50 +18,24 @@ func main() {
 	output := subfinder(domain)
 	output += assetfinder(domain)
 
+	s := strings.Split(output,"\n")
 
-	fmt.Println(output)
+	s = sort(s)
+	fmt.Println(strings.Join(s, "\n"))
+	fmt.Printf("%T\n",s)
 	//fmt.Println(output)
 	
 }
 
-
-//Todos os comandos usados para enumerar 
-
-
-func assetfinder(domain string) string {
-
-	//fmt.Printf("HelloWorld")
-
-	cmd, err := exec.Command("assetfinder", domain).Output()
-
-	if err != nil {
-		fmt.Printf("error %s", err)
-	}
-	return string(cmd)
-
+//Sort output
+func sort(strSlice []string) []string {
+    allKeys := make(map[string]bool)
+    list := []string{}
+    for _, item := range strSlice {
+        if _, value := allKeys[item]; !value {
+            allKeys[item] = true
+            list = append(list, item)
+        }
+    }
+    return list
 }
-
-func amass(domain string) string{
-
-	cmdArgs := []string{"enum", "-noalts", "-passive", "-d", domain}
-	
-	cmd, err := exec.Command("amass", cmdArgs...).Output()
-
-	if( err != nil ){fmt.Println(err)}
-	
-	return string(cmd)
-
-}
-
-func subfinder(domain string) string{
-
-	cmdArgs := []string{"-silent", "-d",domain}
-	
-	cmd, err := exec.Command("subfinder", cmdArgs...).Output()
-
-	if( err != nil ){fmt.Println(err)}
-	
-	return string(cmd)
-}
-
-//--------------------------------------
